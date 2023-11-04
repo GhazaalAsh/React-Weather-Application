@@ -1,0 +1,68 @@
+.WeatherInfo .unit {
+  position: relative;
+  top: -10px;
+  height: fit-content;
+  font-size: 15px;
+  font-weight: 500;
+}
+.WeatherInfo .tempNumb {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 100px;
+  position: relative;
+  top: 18px;
+}
+
+.WeatherInfo .unit a {
+  text-decoration: none;
+  color: #000000;
+  transition: all 20ms ease-in-out;
+  padding: 0 5px;
+}
+.WeatherInfo .unit a:hover {
+  color: #134691;
+}
+
+.WeatherInfo .row {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+.WeatherInfo .row ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.WeatherInfo .row .handleSpace {
+  padding-top: 10px;
+}
+
+.WeatherInfo .MainTemperature {
+  padding-left: 0;
+  position: relative;
+  top: -20px;
+}
+.WeatherInfo .windDegree {
+  border: 1px solid #6c757d;
+  border-radius: 5px;
+  padding: 2px 2px 0 2px;
+  font-size: 10px;
+}
+.WeatherInfo .SunRelatedTimes {
+  font-size: 13px;
+}
+
+.WeatherInfo .icon {
+  position: relative;
+  top: 18px;
+  padding-right: 10px;
+}
+
+.WeatherInfo .otherTemperatures {
+  padding-top: 20px;
+}
+
+.WeatherInfo .pressure {
+  padding-top: 35px;
+}

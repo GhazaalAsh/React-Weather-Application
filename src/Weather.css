@@ -1,0 +1,35 @@
+.Weather {
+  background: linear-gradient(
+    179.4deg,
+    rgb(146, 221, 219) 31.2%,
+    rgb(236, 167, 219) 90.9%
+  );
+  border: 1px solid #6c757d;
+  border-radius: 5px;
+  margin: 50px auto 10px auto;
+  padding: 15px;
+  padding-left: 25px;
+  max-width: 50%;
+}
+
+.Weather .row {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+.Weather .header {
+  padding-left: 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.Weather .header a {
+  text-decoration: none;
+  color: #000000;
+  transition: all 20ms ease-in-out;
+  padding: 0 5px;
+}
+.Weather .header a:hover {
+  color: #134691;
+}
