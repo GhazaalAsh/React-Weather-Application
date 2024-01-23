@@ -53,6 +53,10 @@
   font-size: 13px;
 }
 
+.WeatherInfo .visibility {
+  padding-top: 17px;
+}
+
 .WeatherInfo .icon {
   position: relative;
   top: 18px;

@@ -53,7 +53,7 @@ export default function WeatherInfo(props) {
               </span>
             </li>
           </ul>
-          <div className="pressure">Pressure: {props.info.pressure} mb</div>
+          <div className="pressure">Pressure: {props.info.pressure} mb</div>{" "}
         </div>
         <div className="col-4 handleSpace">
           <ul>
@@ -70,6 +70,9 @@ export default function WeatherInfo(props) {
               Sunset: <SunRelatedTimes Time={props.info.sunset} />
             </li>
           </ul>
+          <div className="visibility">
+            Visibility: {props.info.visibility} m
+          </div>
         </div>
         <WeatherForecast coordinates={props.info.coordinates} />
       </div>
