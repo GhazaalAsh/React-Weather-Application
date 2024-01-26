@@ -31,6 +31,9 @@ export default function Weather(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=new york&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
+  function handleRadioChange() {
+    console.log("RadioChange");
+  }
   function displayWeather(response) {
     setWeather({
       ready: true,
@@ -107,12 +110,48 @@ export default function Weather(props) {
       </div>
     </div>
   );
+  let temperatureWindButton = (
+    <div className="temperatureWindButton">
+      <div
+        className="btn-group"
+        role="group"
+        aria-label="Basic radio toggle button group"
+      >
+        <input
+          type="radio"
+          className="btn-check "
+          name="btnradio"
+          id="btnradio1"
+          autoComplete="off"
+          defaultChecked // Use defaultChecked instead of checked
+        />
+        <label className="btn btn-outline-secondary" htmlFor="btnradio1">
+          Temperature
+        </label>
+
+        <input
+          type="radio"
+          className="btn-check "
+          name="btnradio"
+          id="btnradio2"
+          autoComplete="off"
+        />
+        <label
+          className="btn btn-outline-secondary wind-button"
+          htmlFor="btnradio2"
+        >
+          Wind{" "}
+        </label>
+      </div>
+    </div>
+  );
   if (weather.ready) {
     return (
       <div className="Weather">
         {header}
         {form}
         <WeatherInfo info={weather} />
+        {temperatureWindButton}
         <WeatherForecast coordinates={weather.coordinates} />
       </div>
     );
@@ -122,6 +161,7 @@ export default function Weather(props) {
       <div className="Weather">
         {header}
         {form}
+        {temperatureWindButton}
       </div>
     );
   }

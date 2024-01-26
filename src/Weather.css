@@ -33,3 +33,15 @@
 .Weather .header a:hover {
   color: #134691;
 }
+
+.Weather .temperatureWindButton {
+  padding-top: 20px;
+  text-align: center;
+}
+.Weather .wind-button {
+  padding: 6px 42px 6px 42px;
+}
+
+.Weather .temperature-button {
+  color: #000000;
+}
