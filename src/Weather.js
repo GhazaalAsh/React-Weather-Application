@@ -31,8 +31,14 @@ export default function Weather(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=new york&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
-  function handleRadioChange() {
-    console.log("RadioChange");
+  function convertToTemperature(event) {
+    event.preventDefault();
+    console.log("Tempeature");
+  }
+
+  function convertToWind(event) {
+    event.preventDefault();
+    console.log("Wind");
   }
   function displayWeather(response) {
     setWeather({
@@ -124,6 +130,7 @@ export default function Weather(props) {
           id="btnradio1"
           autoComplete="off"
           defaultChecked // Use defaultChecked instead of checked
+          onClick={convertToTemperature}
         />
         <label className="btn btn-outline-secondary" htmlFor="btnradio1">
           Temperature
@@ -135,6 +142,7 @@ export default function Weather(props) {
           name="btnradio"
           id="btnradio2"
           autoComplete="off"
+          onClick={convertToWind}
         />
         <label
           className="btn btn-outline-secondary wind-button"
