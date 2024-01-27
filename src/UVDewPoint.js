@@ -9,7 +9,14 @@ export default function UVDewPoint(props) {
     setDetailedData(response.data.current);
     setLoaded(true);
   }
-
+  function Dew() {
+    let DewPoint = Math.round(detailedData.dew_point);
+    return `${DewPoint}°`;
+  }
+  function UV() {
+    let UVIndex = Math.round(detailedData.uvi);
+    return `${UVIndex}`;
+  }
   useEffect(() => {
     setLoaded(false);
   }, [props.coordinates]);
@@ -18,8 +25,8 @@ export default function UVDewPoint(props) {
     return (
       <div className="UVDewPoint">
         <ul>
-          <li>Dew Point: {detailedData.dew_point}</li>
-          <li>UV Index: {detailedData.uvi}</li>
+          <li>Dew Point: {Dew()} </li>
+          <li>UV Index: {UV()}</li>
         </ul>
       </div>
     );
