@@ -46,6 +46,7 @@ export default function Weather(props) {
     event.preventDefault();
     console.log("Wind");
   }
+
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
@@ -164,7 +165,7 @@ export default function Weather(props) {
       <div className="Weather">
         {header}
         {form}
-        <WeatherInfo info={weather} />
+        <WeatherInfo info={weather} coordinates={weather.coordinates} />
         {temperatureWindButton}
         <WeatherForecast coordinates={weather.coordinates} />
       </div>

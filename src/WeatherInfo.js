@@ -3,6 +3,7 @@ import FormattedDate from "./FormattedDate";
 import SunRelatedTimes from "./SunRelatedTimes";
 import "./WeatherInfo.css";
 import WeatherUnit from "./WeatherUnit";
+import UVDewPoint from "./UVDewPoint";
 
 export default function WeatherInfo(props) {
   function calculateWindDegree(windDegree) {
@@ -52,7 +53,12 @@ export default function WeatherInfo(props) {
               </span>
             </li>
           </ul>
-          <div className="pressure">Pressure: {props.info.pressure} mb</div>{" "}
+          <div className="pressure">
+            <ul>
+              <li>Pressure: {props.info.pressure} mb</li>{" "}
+              <li>Visibility: {props.info.visibility} m</li>
+            </ul>
+          </div>
         </div>
         <div className="col-4 handleSpace">
           <ul>
@@ -69,8 +75,8 @@ export default function WeatherInfo(props) {
               Sunset: <SunRelatedTimes Time={props.info.sunset} />
             </li>
           </ul>
-          <div className="visibility">
-            Visibility: {props.info.visibility} m
+          <div className="UV-Dew">
+            <UVDewPoint coordinates={props.coordinates} />
           </div>
         </div>
       </div>

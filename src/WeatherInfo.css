@@ -28,6 +28,7 @@
   font-size: 14px;
   font-weight: 500;
   padding-top: 10px;
+  padding-bottom: 0;
 }
 .WeatherInfo .row ul {
   list-style-type: none;
@@ -53,7 +54,7 @@
   font-size: 13px;
 }
 
-.WeatherInfo .visibility {
+.WeatherInfo .UV-Dew {
   padding-top: 17px;
 }
 
@@ -68,5 +69,9 @@
 }
 
 .WeatherInfo .pressure {
-  padding-top: 35px;
+  padding-top: 25px;
+}
+
+.WeatherInfo .UV-Dew {
+  padding-top: 5px;
 }
