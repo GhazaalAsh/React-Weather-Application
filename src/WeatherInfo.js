@@ -3,7 +3,6 @@ import FormattedDate from "./FormattedDate";
 import SunRelatedTimes from "./SunRelatedTimes";
 import "./WeatherInfo.css";
 import WeatherUnit from "./WeatherUnit";
-import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherInfo(props) {
   function calculateWindDegree(windDegree) {
@@ -74,7 +73,6 @@ export default function WeatherInfo(props) {
             Visibility: {props.info.visibility} m
           </div>
         </div>
-        <WeatherForecast coordinates={props.info.coordinates} />
       </div>
     </div>
   );

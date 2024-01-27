@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
 import WeatherForecastHour from "./WeatherForecastHour";
@@ -15,6 +15,10 @@ export default function WeatherForecast(props) {
     setLoaded(true);
   }
 
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
   if (loaded) {
     return (
       <div className="WeatherForecast">
@@ -26,6 +30,8 @@ export default function WeatherForecast(props) {
                   <WeatherForecastHour data={hourlyforecast} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>
@@ -37,6 +43,8 @@ export default function WeatherForecast(props) {
                   <WeatherForecastDay data={dailyforecast} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>

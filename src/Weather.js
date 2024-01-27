@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [city, setCity] = useState("");
   const [weather, setWeather] = useState({ ready: false });
+  const [city, setCity] = useState("");
+  let [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinate]);
+
   function handleSubmit(event) {
     event.preventDefault();
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -41,8 +47,8 @@ export default function Weather(props) {
     console.log("Wind");
   }
   function displayWeather(response) {
+    setLoaded(true);
     setWeather({
-      ready: true,
       coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -153,7 +159,7 @@ export default function Weather(props) {
       </div>
     </div>
   );
-  if (weather.ready) {
+  if (loaded) {
     return (
       <div className="Weather">
         {header}
