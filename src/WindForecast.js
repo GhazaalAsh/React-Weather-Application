@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import WeatherForecastDay from "./WeatherForecastDay";
-import WeatherForecastHour from "./WeatherForecastHour";
-import "./WeatherForecast.css";
+import WindForecastDay from "./WindForecastDay";
+import WindForecastHour from "./WindForecastHour";
+import "./WindForecast.css";
 
 export default function WindForecast(props) {
   let [loaded, setLoaded] = useState(false);
@@ -21,13 +21,13 @@ export default function WindForecast(props) {
 
   if (loaded) {
     return (
-      <div className="WeatherForecast">
+      <div className="WindForecast">
         <div className="row">
           {hourlyForecastData.map(function (hourlyforecast, index) {
             if (index < 6) {
               return (
                 <div className="col">
-                  <WeatherForecastHour data={hourlyforecast} />
+                  <WindForecastHour data={hourlyforecast} />
                 </div>
               );
             } else {
@@ -40,7 +40,7 @@ export default function WindForecast(props) {
             if (index < 6) {
               return (
                 <div className="col">
-                  <WeatherForecastDay data={dailyforecast} />
+                  <WindForecastDay data={dailyforecast} />
                 </div>
               );
             } else {
