@@ -3,15 +3,19 @@ import axios from "axios";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
+import WindForecast from "./WindForecast";
 
 export default function Weather(props) {
   const [weather, setWeather] = useState({ ready: false });
   const [city, setCity] = useState("");
+  const [showWeatherForecast, setShowWeatherForecast] = useState(true);
+  const [showWindForecast, setshowWindForecast] = useState(false);
+
   let [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setLoaded(false);
-  }, [props.coordinate]);
+  }, [props.coordinates]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -39,12 +43,14 @@ export default function Weather(props) {
   }
   function convertToTemperature(event) {
     event.preventDefault();
-    console.log("Tempeature");
+    setshowWindForecast(false);
+    setShowWeatherForecast(true);
   }
 
   function convertToWind(event) {
     event.preventDefault();
-    console.log("Wind");
+    setShowWeatherForecast(false);
+    setshowWindForecast(true);
   }
 
   function displayWeather(response) {
@@ -151,6 +157,7 @@ export default function Weather(props) {
           autoComplete="off"
           onClick={convertToWind}
         />
+
         <label
           className="btn btn-outline-secondary wind-button"
           htmlFor="btnradio2"
@@ -167,7 +174,10 @@ export default function Weather(props) {
         {form}
         <WeatherInfo info={weather} coordinates={weather.coordinates} />
         {temperatureWindButton}
-        <WeatherForecast coordinates={weather.coordinates} />
+        {showWeatherForecast && (
+          <WeatherForecast coordinates={weather.coordinates} />
+        )}
+        {showWindForecast && <WindForecast coordinates={weather.coordinates} />}
       </div>
     );
   } else {
