@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
@@ -10,8 +11,30 @@ export default function Weather(props) {
   const [city, setCity] = useState("");
   const [showWeatherForecast, setShowWeatherForecast] = useState(true);
   const [showWindForecast, setshowWindForecast] = useState(false);
-
   let [loaded, setLoaded] = useState(false);
+  const getTimeBasedBackground = () => {
+    const currentTime = moment().format("HH:mm");
+    const morningStart = moment("06:00", "HH:mm");
+    const afternoonStart = moment("12:00", "HH:mm");
+    const eveningStart = moment("18:00", "HH:mm");
+    const nightStart = moment("00:00", "HH:mm");
+
+    if (moment(currentTime, "HH:mm").isBetween(morningStart, afternoonStart)) {
+      return "morning-background";
+    } else if (
+      moment(currentTime, "HH:mm").isBetween(afternoonStart, eveningStart)
+    ) {
+      return "afternoon-background";
+    } else if (
+      moment(currentTime, "HH:mm").isBetween(eveningStart, nightStart)
+    ) {
+      return "evening-background";
+    } else {
+      return "night-background";
+    }
+  };
+
+  const backgroundClass = getTimeBasedBackground();
 
   useEffect(() => {
     setLoaded(false);
@@ -169,7 +192,7 @@ export default function Weather(props) {
   );
   if (loaded) {
     return (
-      <div className="Weather">
+      <div className={`Weather ${backgroundClass}`}>
         {header}
         {form}
         <WeatherInfo info={weather} coordinates={weather.coordinates} />
@@ -183,7 +206,7 @@ export default function Weather(props) {
   } else {
     Search();
     return (
-      <div className="Weather">
+      <div className={`Weather ${backgroundClass}`}>
         {header}
         {form}
         {temperatureWindButton}

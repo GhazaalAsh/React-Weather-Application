@@ -1,0 +1,25 @@
+.Weather .morning-background {
+  background: linear-gradient(
+    179.4deg,
+    rgb(146, 221, 219) 31.2%,
+    rgb(236, 167, 219) 90.9%
+  );
+}
+
+.Weather .afternoon-background {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 189, 189) 0%,
+    rgb(255, 216, 168) 62%,
+    rgb(255, 248, 168) 100.7%
+  );
+}
+
+.Weather .evening-background {
+  background: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+}
+
+.Weather .night-background {
+  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  color: #e0d0d4;
+}
