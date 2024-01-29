@@ -17,7 +17,7 @@ export default function Weather(props) {
     const morningStart = moment("06:00", "HH:mm");
     const afternoonStart = moment("12:00", "HH:mm");
     const eveningStart = moment("18:00", "HH:mm");
-    const nightStart = moment("00:00", "HH:mm");
+    const nightStart = moment("24:00", "HH:mm");
 
     if (moment(currentTime, "HH:mm").isBetween(morningStart, afternoonStart)) {
       return "morning-background";
