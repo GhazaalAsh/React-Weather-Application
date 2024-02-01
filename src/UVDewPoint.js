@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useAppContext } from "./AppContext";
 
 export default function UVDewPoint(props) {
+  const { units } = useAppContext();
   let [loaded, setLoaded] = useState(false);
   let [detailedData, setDetailedData] = useState(null);
 
@@ -34,7 +36,7 @@ export default function UVDewPoint(props) {
     let apikey = "25fad9f7e87157d33dde0f82ab269ee8";
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=${units}`;
     axios.get(apiUrl).then(handleResponse);
     return null;
   }
