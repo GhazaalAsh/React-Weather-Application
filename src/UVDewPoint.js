@@ -12,7 +12,7 @@ export default function UVDewPoint(props) {
 
   function Dew() {
     let DewPoint = Math.round(detailedData.dew_point);
-    return `${DewPoint}°`;
+    return `${DewPoint} °C`;
   }
 
   function UV() {
