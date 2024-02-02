@@ -46,7 +46,7 @@ export default function WeatherUnit(props) {
     return (
       <div>
         <span className="icon">
-          <WeatherIcon code={props.code} />
+          <WeatherIcon code={props.code} size={52} />
         </span>
         <span className="WeatherUnit">
           <span className="tempNumb">
