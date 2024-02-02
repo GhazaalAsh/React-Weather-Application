@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import WeatherIcon from "./WeatherIcon";
-import { useAppContext } from "./AppContext";
 import "./WeatherForecast.css";
 
 export default function WeatherUnit(props) {
   const [unit, setUnit] = useState("celsius");
-  const { units, toggleUnit } = useAppContext();
+
   function showFahrenheit(event) {
     event.preventDefault();
     setUnit("fahrenheit");
   }
+
   function showCelsius(event) {
     event.preventDefault();
     setUnit("celsius");
   }
+
   function fahrenheit(props) {
     return (props * 9) / 5 + 32;
   }
@@ -52,21 +53,10 @@ export default function WeatherUnit(props) {
             {Math.round(fahrenheit(props.celsius))}
           </span>
           <span className="unit">
-            {units === "celsius" ? (
-              <>
-                °C |
-                <a href="./" onClick={toggleUnit}>
-                  °F
-                </a>
-              </>
-            ) : (
-              <>
-                °F |
-                <a href="./" onClick={toggleUnit}>
-                  °C
-                </a>
-              </>
-            )}
+            °F |
+            <a href="./" onClick={showCelsius}>
+              °C
+            </a>
           </span>
         </span>
         <div className="otherTemperatures">
