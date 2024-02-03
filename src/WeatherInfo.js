@@ -1,9 +1,9 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import SunRelatedTimes from "./SunRelatedTimes";
-import "./WeatherInfo.css";
 import WeatherUnit from "./WeatherUnit";
 import UVDewPoint from "./UVDewPoint";
+import "./WeatherInfo.css";
 
 export default function WeatherInfo(props) {
   function calculateWindDegree(windDegree) {

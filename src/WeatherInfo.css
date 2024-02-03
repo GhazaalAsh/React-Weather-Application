@@ -55,7 +55,7 @@
 }
 
 .WeatherInfo .UV-Dew {
-  padding-top: 17px;
+  padding-top: 6px;
 }
 
 .WeatherInfo .icon {
@@ -70,8 +70,4 @@
 
 .WeatherInfo .pressure {
   padding-top: 25px;
-}
-
-.WeatherInfo .UV-Dew {
-  padding-top: 5px;
 }

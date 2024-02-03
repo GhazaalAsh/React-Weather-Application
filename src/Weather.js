@@ -161,12 +161,12 @@ export default function Weather(props) {
       >
         <input
           type="radio"
-          className="btn-check "
+          className="btn-check"
           name="btnradio"
           id="btnradio1"
           autoComplete="off"
-          defaultChecked // Use defaultChecked instead of checked
-          onClick={convertToTemperature}
+          defaultChecked
+          onChange={convertToTemperature}
         />
         <label className="btn btn-outline-secondary" htmlFor="btnradio1">
           Temperature
@@ -178,7 +178,7 @@ export default function Weather(props) {
           name="btnradio"
           id="btnradio2"
           autoComplete="off"
-          onClick={convertToWind}
+          onChange={convertToWind}
         />
 
         <label
