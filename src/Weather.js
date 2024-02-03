@@ -115,8 +115,18 @@ export default function Weather(props) {
           placeholder="Search for a city..."
           id="search-input"
           autoComplete="off"
+          value={city}
           onChange={updateCity}
         />
+        {city && (
+          <button
+            className="btn btn-outline-secondary clear-button"
+            type="button"
+            onClick={() => setCity("")} // clear the input value
+          >
+            &#10006;
+          </button>
+        )}
         <button className="btn btn-outline-secondary" type="submit">
           Search
         </button>
