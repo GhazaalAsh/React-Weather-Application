@@ -3,8 +3,8 @@ import axios from "axios";
 import moment from "moment";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
-import "./Weather.css";
 import WindForecast from "./WindForecast";
+import "./Weather.css";
 
 export default function Weather(props) {
   const [weather, setWeather] = useState({ ready: false });
@@ -12,6 +12,7 @@ export default function Weather(props) {
   const [showWeatherForecast, setShowWeatherForecast] = useState(true);
   const [showWindForecast, setshowWindForecast] = useState(false);
   let [loaded, setLoaded] = useState(false);
+
   const getTimeBasedBackground = () => {
     const currentTime = moment().format("HH:mm");
     const morningStart = moment("06:00", "HH:mm");
@@ -40,12 +41,26 @@ export default function Weather(props) {
     setLoaded(false);
   }, [props.coordinates]);
 
+  const getCurrentLocation = (event) => {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getPosition);
+  };
+
+  const getPosition = (position) => {
+    let currentLongitude = position.coords.longitude;
+    let currentLatitude = position.coords.latitude;
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
+
   function changeToParis(event) {
     event.preventDefault();
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -116,7 +131,7 @@ export default function Weather(props) {
           id="search-input"
           autoComplete="off"
           value={city}
-          onChange={updateCity}
+          onClick={updateCity}
         />
         {city && (
           <button
@@ -135,6 +150,7 @@ export default function Weather(props) {
           type="button"
           id="currentLocation"
           title="Current Location"
+          onClick={getCurrentLocation}
         >
           <i className="fa-solid fa-location-dot"></i>
         </button>
